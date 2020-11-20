@@ -12,8 +12,11 @@ namespace CourseBuilder
 {
     public partial class Form1 : Form
     {
+        private RuleReader reader;
         public Form1()
         {
+            reader = new RuleReader();
+            reader.createRules();
             InitializeComponent();
         }
 

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GSU>
+  <rule>
+    <out>CSCI 1301</out>
+    <sem>O</sem>
+    <req>MATH 1441</req>
+  </rule>
+  <rule>
+    <out>CSCI 1302</out>
+    <sem>O</sem>
+    <req>MATH 1441</req>
+    <req>MATH 2130</req>
+    <req>CSCI 1301</req>
+  </rule>
+  <rule>
+    <out>CSCI 2120</out>
+    <sem>O</sem>
+    <req>COMM 1110</req>
+    <req>CSCI 1301</req>
+  </rule>
+  <rule>
+    <out>CSCI 2490</out>
+    <sem>F</sem>
+    <req>CSCI 1302</req>
+  </rule>
+  <rule>
+    <out>CSCI 3230</out>
+    <sem>O</sem>
+    <req>CSCI 1302</req>
+    <req>MATH 2130</req>
+  </rule>
+  <rule>
+    <out>CSCI 3231</out>
+    <sem>S</sem>
+    <req>CSCI 1302</req>
+  </rule>
+  <rule>
+    <out>CSCI 3232</out>
+    <sem>F</sem>
+    <req>CSCI 1302</req>
+    <req>CSCI 3230</req>
+  </rule>
+  <rule>
+    <out>CSCI 3236</out>
+    <sem>F</sem>
+    <req>CSCI 2130</req>
+    <req>CSCI 1302</req>
+  </rule>
+  <rule>
+    <out>CSCI 3330</out>
+    <sem>S</sem>
+    <req>CSCI 2490</req>
+  </rule>
+  <rule>
+    <out>CSCI 3330</out>
+    <sem>S</sem>
+    <req>CSCI 3232</req>
+  </rule>
+  <rule>
+    <out>CSCI 3341</out>
+    <sem>S</sem>
+    <req>CSCI 3230</req>
+    <req>CSCI 2490</req>
+  </rule>
+  <rule>
+    <out>CSCI 3432</out>
+    <sem>F</sem>
+    <req>CSCI 1301</req>
+  </rule>
+  <rule>
+    <out>CSCI 3432</out>
+    <sem>F</sem>
+    <req>MATH 2130</req>
+  </rule>
+  <rule>
+    <out>CSCI 4132</out>
+    <sem>F</sem>
+    <req>CSCI 3432</req>
+  </rule>
+  <rule>
+    <out>CSCI 4210</out>
+    <sem>S</sem>
+    <req>CSCI 3341</req>
+  </rule>
+  <rule>
+    <out>CSCI 4220</out>
+    <sem>F</sem>
+  </rule>
+  <rule>
+    <out>CSCI 4235</out>
+    <sem>F</sem>
+    <req>CSCI 3230</req>
+  </rule>
+  <rule>
+    <out>CSCI 4320</out>
+    <sem>F</sem>
+    <req>CSCI 3432</req>
+  </rule>
+  <rule>
+    <out>CSCI 4322</out>
+    <sem>S</sem>
+    <req>CSCI 1302</req>
+    <req>MATH 2130</req>
+  </rule>
+  <rule>
+    <out>CSCI 4342</out>
+    <sem>F</sem>
+    <req>CSCI 3341</req>
+  </rule>
+  <rule>
+    <out>CSCI 4343</out>
+    <sem>SU</sem>
+    <req>CSCI 3341</req>
+  </rule>
+  <rule>
+    <out>CSCI 4350</out>
+    <sem>F</sem>
+    <req>CSCI 3330</req>
+  </rule>
+  <rule>
+    <out>CSCI 4360</out>
+    <sem>S</sem>
+    <req>CSCI 1302</req>
+  </rule>
+  <rule>
+    <out>CSCI 4370</out>
+    <sem>F</sem>
+    <req>CSCI 1302</req>
+  </rule>
+  <rule>
+    <out>CSCI 4410</out>
+    <sem>F</sem>
+    <req>CSCI 1301</req>
+    <req>MATH 2242</req>
+  </rule>
+  <rule>
+    <out>CSCI 4439</out>
+    <sem>O</sem>
+    <req>CSCI 1302</req>
+  </rule>
+  <rule>
+    <out>CSCI 4520</out>
+    <sem>S</sem>
+    <req>MATH 2130</req>
+    <req>CSCI 2490</req>
+  </rule>
+  <rule>
+    <out>CSCI 4520</out>
+    <sem>S</sem>
+    <req>CSCI 3232</req>
+    <req>MATH 2130</req>
+  </rule>
+  <rule>
+    <out>CSCI 4534</out>
+    <sem>F</sem>
+    <req>CSCI 3236</req>
+  </rule>
+  <rule>
+    <out>CSCI 4535</out>
+    <sem>S</sem>
+    <req>CSCI 3432</req>
+  </rule>
+  <rule>
+    <out>CSCI 4537</out>
+    <sem>F</sem>
+    <req>CSCI 5332</req>
+  </rule>
+  <rule>
+    <out>CSCI 4539</out>
+    <sem>S</sem>
+    <req>CSCI 5332</req>
+  </rule>
+  <rule>
+    <out>CSCI 5130</out>
+    <sem>SU</sem>
+    <req>CSCI 1230</req>
+  </rule>
+  <rule>
+    <out>CSCI 5230</out>
+    <sem>S</sem>
+    <req>CSCI 3230</req>
+    <req>STAT 1401</req>
+  </rule>
+  <rule>
+    <out>CSCI 5330</out>
+    <sem>F</sem>
+    <req>CSCI 3236</req>
+    <req>MATH 2242</req>
+  </rule>
+  <rule>
+    <out>CSCI 5331</out>
+    <sem>F</sem>
+    <req>CSCI 3232</req>
+    <req>CSCI 3341</req>
+  </rule>
+  <rule>
+    <out>CSCI 5332</out>
+    <sem>S</sem>
+    <req>CSCI 3341</req>
+    <req>STAT1401</req>
+  </rule>
+  <rule>
+    <out>CSCI 5332</out>
+    <sem>S</sem>
+    <req>CSCI 3232</req>
+    <req>STAT 1401</req>
+  </rule>
+  <rule>
+    <out>CSCI 5335</out>
+    <sem>O</sem>
+    <req>CSCI 3230</req>
+  </rule>
+  <rule>
+    <out>CSCI 5380</out>
+    <sem>S</sem>
+    <req>CSCI 1302</req>
+  </rule>
+  <rule>
+    <out>CSCI 5430</out>
+    <sem>O</sem>
+    <req>CSCI 3230</req>
+    <req>CSCI 5330</req>
+  </rule>
+  <rule>
+    <out>CSCI 5431</out>
+    <sem>S</sem>
+    <req>CSCI 5332</req>
+    <req>CSCI 2120</req>
+  </rule>
+  <rule>
+    <out>CSCI 5436</out>
+    <sem>F</sem>
+    <req>CSCI 3432</req>
+  </rule>
+  <rule>
+    <out>CSCI 5437</out>
+    <sem>S</sem>
+    <req>CSCI 3230</req>
+    <req>CSCI 3236</req>
+  </rule>
+  <rule>
+    <out>CSCI 5438</out>
+    <sem>F</sem>
+    <req>CSCI 5437</req>
+  </rule>
+  <rule>
+    <out>CSCI 5530</out>
+    <sem>O</sem>
+    <req>CSCI 5330</req>
+    <req>CSCI 5335</req>
+    <req>CSCI 3432</req>
+  </rule>
+  <rule>
+    <out>CSCI 5531</out>
+    <sem>S</sem>
+    <req>CSCI 1302</req>
+    <req>CSCI 3432</req>
+  </rule>
+  <rule>
+    <out>CSCI 5532</out>
+    <sem>F</sem>
+    <req>CSCI 5332</req>
+  </rule>
+  <rule>
+    <out>CSCI 5538</out>
+    <sem>S</sem>
+    <req>CSCI 5532</req>
+    <req>MATH 1441</req>
+  </rule>
+</GSU>

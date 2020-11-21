@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.subjectLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addButton = new System.Windows.Forms.Button();
@@ -36,6 +37,8 @@
             this.courseNumberMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.gradeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.gradeLabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // subjectLabel
@@ -57,16 +60,22 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(418, 62);
+            this.addButton.Location = new System.Drawing.Point(353, 62);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // courseComboBox
             // 
             this.courseComboBox.FormattingEnabled = true;
+            this.courseComboBox.Items.AddRange(new object[] {
+            "COMM",
+            "CSCI",
+            "MATH",
+            "STAT"});
             this.courseComboBox.Location = new System.Drawing.Point(28, 62);
             this.courseComboBox.Name = "courseComboBox";
             this.courseComboBox.Size = new System.Drawing.Size(121, 23);
@@ -84,6 +93,7 @@
             // courseNumberMaskedTextBox
             // 
             this.courseNumberMaskedTextBox.Location = new System.Drawing.Point(168, 61);
+            this.courseNumberMaskedTextBox.Mask = "0000";
             this.courseNumberMaskedTextBox.Name = "courseNumberMaskedTextBox";
             this.courseNumberMaskedTextBox.Size = new System.Drawing.Size(100, 23);
             this.courseNumberMaskedTextBox.TabIndex = 5;
@@ -91,8 +101,9 @@
             // gradeMaskedTextBox
             // 
             this.gradeMaskedTextBox.Location = new System.Drawing.Point(288, 61);
+            this.gradeMaskedTextBox.Mask = "L";
             this.gradeMaskedTextBox.Name = "gradeMaskedTextBox";
-            this.gradeMaskedTextBox.Size = new System.Drawing.Size(100, 23);
+            this.gradeMaskedTextBox.Size = new System.Drawing.Size(38, 23);
             this.gradeMaskedTextBox.TabIndex = 6;
             // 
             // gradeLabel
@@ -104,11 +115,22 @@
             this.gradeLabel.TabIndex = 7;
             this.gradeLabel.Text = "Grade";
             // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(434, 62);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 8;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.gradeLabel);
             this.Controls.Add(this.gradeMaskedTextBox);
             this.Controls.Add(this.courseNumberMaskedTextBox);
@@ -135,6 +157,8 @@
         private System.Windows.Forms.MaskedTextBox courseNumberMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox gradeMaskedTextBox;
         private System.Windows.Forms.Label gradeLabel;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

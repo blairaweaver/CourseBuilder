@@ -21,6 +21,30 @@ namespace CourseBuilder
             this.course = course;
         }
 
+        //take the Semester and working memory to see if this rule can fire
+        public Boolean requirementsMet(String semester, List<String> workingMem)
+        {
+            //semester is a faster check, so do that first
+            //if semester is correct, then check the other requirements
+            if (sem == semester)
+            {
+                //cycle throught the prereqs
+                foreach (String prereq in req)
+                {
+                    //if a prereq isn't in the working memory, return false
+                    if (!workingMem.Contains(prereq))
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
 
+            //return if the rule is triggered
+            return true;
+        }
     }
 }

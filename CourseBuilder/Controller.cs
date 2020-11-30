@@ -12,10 +12,12 @@ namespace CourseBuilder
         List<Rule> firedRules; //rules that have reqs meet will be moved to here temporarily
         List<Rule> nonApplicable; //this are rules for which a outcome course is in the transcript or in one of the semesters
         List<String> workingMemory;
-        public Controller()
+        Form1 mainForm; //this is so this class can modify the text boxes on the form
+        public Controller(Form1 form)
         {
             reader = new RuleReader();
             rules = reader.createRules();
+            mainForm = form;
 
             //initialize the other lists
             firedRules = new List<Rule>();
@@ -34,7 +36,7 @@ namespace CourseBuilder
 
         //this will add the course to the working memory
         //this will also move any rules that have this as an output to 
-        public void addToWorkingMem(List<String> Courses)
+        private void addToWorkingMem(List<String> Courses)
         {
             //add the courses to working memory
             workingMemory = new List<string>(Courses);
@@ -49,6 +51,101 @@ namespace CourseBuilder
                     i--;
                 }
             }
+        }
+
+        //This function will determine the next two semesters of classes
+        private void getJuniorSchedule()
+        {
+            //loop through the rules to find courses
+            //This will be done twice: fall and spring
+
+            String output = "";
+
+            //get the fall courses
+            getCourses("F");
+
+            //add the courses to the working mem and to the Gui
+            //add the rules to Non applicable
+            for(int i = 0; i < firedRules.Count; i++)
+            {
+                String courseName = firedRules[i].Course;
+                workingMemory.Add(courseName);
+                output += courseName + Environment.NewLine;
+                nonApplicable.Add(firedRules[i]);
+                firedRules.RemoveAt(i);
+                i--;
+            }
+
+            //send the output to the fall textbox and clear
+            mainForm.addJuniorCourses(output, "F");
+            output = "";
+
+            //get the Spring Courses
+            getCourses("S");
+
+            //add the courses to the working mem and to the Gui
+            //add the rules to Non applicable
+            for (int i = 0; i < firedRules.Count; i++)
+            {
+                String courseName = firedRules[i].Course;
+                workingMemory.Add(courseName);
+                output += courseName + Environment.NewLine;
+                nonApplicable.Add(firedRules[i]);
+                firedRules.RemoveAt(i);
+                i--;
+            }
+
+            //send the output to the fall textbox and clear
+            mainForm.addJuniorCourses(output, "S");
+            output = "";
+        }
+
+        //This function will get four course for the semester given
+        //courses stored in the FiredRules
+        private void getCourses(String semester)
+        {
+            List<String> workingList = new List<string>();
+            //Search for the courses
+            for (int i = 0; i < workingRules.Count; i++)
+            {
+                //if the requirements are met, move to firedRules List
+                //and remove from working rules
+                if (workingRules[i].requirementsMet(semester, workingMemory))
+                {
+                    //if we haven't encountered a rule that has an outcome of the course
+                    //add rule to fired list and remove
+                    if(!workingList.Contains(workingRules[i].Course))
+                    {
+                        workingList.Add(workingRules[i].Course);
+                        firedRules.Add(workingRules[i]);
+                        workingRules.RemoveAt(i);
+                        i--;
+                    }
+                    //else, move the rule to the non applicable and remove
+                    else
+                    {
+                        nonApplicable.Add(workingRules[i]);
+                        workingRules.RemoveAt(i);
+                        i--;
+                    }
+                }
+
+                //check to see if we have four course and break loop if we do
+                if (firedRules.Count == 4)
+                {
+                    break;
+                }
+            }
+        }
+
+        //method called by the GUI to run
+        //This will call the other functions needed
+
+        //Nothing prevents this from being called again before end session is clicked
+        public void run(List<String> Courses)
+        {
+            addToWorkingMem(Courses);
+            getJuniorSchedule();
         }
     }
 }

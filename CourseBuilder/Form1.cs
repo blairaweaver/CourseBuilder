@@ -16,7 +16,7 @@ namespace CourseBuilder
         List<String> Courses;
         public Form1()
         {
-            controller = new Controller();
+            controller = new Controller(this);
             Courses = new List<string>();
             InitializeComponent();
 
@@ -132,6 +132,10 @@ namespace CourseBuilder
             //clear the transcript box
             transcriptTextBox.Clear();
 
+            //clear the junior semester boxes
+            fallTextBox.Clear();
+            springTextBox.Clear();
+
             //clear the remove combobox
             removeComboBox.Items.Clear();
 
@@ -177,12 +181,25 @@ namespace CourseBuilder
 
         }
 
+        //give the other classes access to modify the fall and spring textbox
+        public void addJuniorCourses(String output, String Semester)
+        {
+            if(Semester == "F")
+            {
+                fallTextBox.Text = output;
+            }
+            else
+            {
+                springTextBox.Text = output;
+            }
+        }
+
         //this will start the process.
         //There is still a lot to write and then add here
         //ex deduction methods, eplanation module
         private void runButton_Click(object sender, EventArgs e)
         {
-            controller.addToWorkingMem(Courses);
+            controller.run(Courses);
         }
     }
 }

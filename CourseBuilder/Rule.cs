@@ -26,7 +26,8 @@ namespace CourseBuilder
         {
             //semester is a faster check, so do that first
             //if semester is correct, then check the other requirements
-            if (sem == semester)
+            //if our semester is O, then it doesn't matter which semester it is
+            if (sem == "O" || sem == semester )
             {
                 //cycle throught the prereqs
                 foreach (String prereq in req)

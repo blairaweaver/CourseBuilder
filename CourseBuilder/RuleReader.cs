@@ -9,7 +9,6 @@ namespace CourseBuilder
     class RuleReader
     {
         private List<Rule> rules;
-        private static RuleReader ruleReader;
 
         public RuleReader() 
         {

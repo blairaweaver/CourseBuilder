@@ -46,6 +46,12 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.removeLabel = new System.Windows.Forms.Label();
             this.runButton = new System.Windows.Forms.Button();
+            this.forwardRadioButton = new System.Windows.Forms.RadioButton();
+            this.backwardRadioButton = new System.Windows.Forms.RadioButton();
+            this.fallLabel = new System.Windows.Forms.Label();
+            this.fallTextBox = new System.Windows.Forms.TextBox();
+            this.springLabel = new System.Windows.Forms.Label();
+            this.springTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // subjectLabel
@@ -61,7 +67,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1097, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,6 +150,7 @@
             this.transcriptTextBox.Multiline = true;
             this.transcriptTextBox.Name = "transcriptTextBox";
             this.transcriptTextBox.ReadOnly = true;
+            this.transcriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.transcriptTextBox.Size = new System.Drawing.Size(192, 110);
             this.transcriptTextBox.TabIndex = 10;
             this.transcriptTextBox.MouseHover += new System.EventHandler(this.transcriptTextBox_MouseHover);
@@ -151,7 +158,7 @@
             // endButton
             // 
             this.endButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.endButton.Location = new System.Drawing.Point(273, 393);
+            this.endButton.Location = new System.Drawing.Point(353, 689);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(198, 45);
             this.endButton.TabIndex = 11;
@@ -199,7 +206,7 @@
             // runButton
             // 
             this.runButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.runButton.Location = new System.Drawing.Point(617, 393);
+            this.runButton.Location = new System.Drawing.Point(151, 690);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(117, 44);
             this.runButton.TabIndex = 16;
@@ -207,11 +214,75 @@
             this.runButton.UseVisualStyleBackColor = true;
             this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
+            // forwardRadioButton
+            // 
+            this.forwardRadioButton.AutoSize = true;
+            this.forwardRadioButton.Location = new System.Drawing.Point(117, 616);
+            this.forwardRadioButton.Name = "forwardRadioButton";
+            this.forwardRadioButton.Size = new System.Drawing.Size(119, 19);
+            this.forwardRadioButton.TabIndex = 17;
+            this.forwardRadioButton.TabStop = true;
+            this.forwardRadioButton.Text = "Forward Chaining";
+            this.forwardRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // backwardRadioButton
+            // 
+            this.backwardRadioButton.AutoSize = true;
+            this.backwardRadioButton.Location = new System.Drawing.Point(317, 616);
+            this.backwardRadioButton.Name = "backwardRadioButton";
+            this.backwardRadioButton.Size = new System.Drawing.Size(127, 19);
+            this.backwardRadioButton.TabIndex = 18;
+            this.backwardRadioButton.TabStop = true;
+            this.backwardRadioButton.Text = "Backward Chaining";
+            this.backwardRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // fallLabel
+            // 
+            this.fallLabel.AutoSize = true;
+            this.fallLabel.Location = new System.Drawing.Point(28, 251);
+            this.fallLabel.Name = "fallLabel";
+            this.fallLabel.Size = new System.Drawing.Size(76, 15);
+            this.fallLabel.TabIndex = 20;
+            this.fallLabel.Text = "Fall Semester";
+            // 
+            // fallTextBox
+            // 
+            this.fallTextBox.Location = new System.Drawing.Point(28, 269);
+            this.fallTextBox.Multiline = true;
+            this.fallTextBox.Name = "fallTextBox";
+            this.fallTextBox.ReadOnly = true;
+            this.fallTextBox.Size = new System.Drawing.Size(192, 110);
+            this.fallTextBox.TabIndex = 19;
+            // 
+            // springLabel
+            // 
+            this.springLabel.AutoSize = true;
+            this.springLabel.Location = new System.Drawing.Point(317, 247);
+            this.springLabel.Name = "springLabel";
+            this.springLabel.Size = new System.Drawing.Size(92, 15);
+            this.springLabel.TabIndex = 22;
+            this.springLabel.Text = "Srping Semester";
+            // 
+            // springTextBox
+            // 
+            this.springTextBox.Location = new System.Drawing.Point(317, 269);
+            this.springTextBox.Multiline = true;
+            this.springTextBox.Name = "springTextBox";
+            this.springTextBox.ReadOnly = true;
+            this.springTextBox.Size = new System.Drawing.Size(192, 110);
+            this.springTextBox.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1097, 764);
+            this.Controls.Add(this.springLabel);
+            this.Controls.Add(this.springTextBox);
+            this.Controls.Add(this.fallLabel);
+            this.Controls.Add(this.fallTextBox);
+            this.Controls.Add(this.backwardRadioButton);
+            this.Controls.Add(this.forwardRadioButton);
             this.Controls.Add(this.runButton);
             this.Controls.Add(this.removeLabel);
             this.Controls.Add(this.removeButton);
@@ -255,6 +326,12 @@
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Label removeLabel;
         private System.Windows.Forms.Button runButton;
+        private System.Windows.Forms.RadioButton forwardRadioButton;
+        private System.Windows.Forms.RadioButton backwardRadioButton;
+        private System.Windows.Forms.Label fallLabel;
+        private System.Windows.Forms.TextBox fallTextBox;
+        private System.Windows.Forms.Label springLabel;
+        private System.Windows.Forms.TextBox springTextBox;
     }
 }
 

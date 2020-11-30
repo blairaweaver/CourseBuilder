@@ -13,11 +13,13 @@ namespace CourseBuilder
         List<Rule> nonApplicable; //this are rules for which a outcome course is in the transcript or in one of the semesters
         List<String> workingMemory;
         Form1 mainForm; //this is so this class can modify the text boxes on the form
+        InferenceEngine inferenceEngine; 
         public Controller(Form1 form)
         {
             reader = new RuleReader();
             rules = reader.createRules();
             mainForm = form;
+            inferenceEngine = new InferenceEngine();
 
             //initialize the other lists
             firedRules = new List<Rule>();
@@ -146,6 +148,16 @@ namespace CourseBuilder
         {
             addToWorkingMem(Courses);
             getJuniorSchedule();
+            string output = inferenceEngine.forwardChaining(workingMemory, workingRules);
+            ForwardOutput forwardOutput = new ForwardOutput(output);
+            forwardOutput.ShowDialog();
+        }
+
+        public void run(List<String> Courses, String Course)
+        {
+            addToWorkingMem(Courses);
+            getJuniorSchedule();
+            inferenceEngine.backwardChaining(workingMemory, workingRules, Course);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace CourseBuilder
             }
 
             //Since the maskedtextbox does allow for spaces and returns a string with spaces, remove spaces and check length
-            String courseNumber = String.Concat(courseNumberMaskedTextBox.Text.Where(c => !Char.IsWhiteSpace(c)));
+            string courseNumber = string.Concat(courseNumberMaskedTextBox.Text.Where(c => !char.IsWhiteSpace(c)));
             if (courseNumber.Length != 4)
             {
                 MessageBox.Show("Please enter a full course number");
@@ -57,7 +57,7 @@ namespace CourseBuilder
 
             //Add course to the transcript. Need to also send it to the controller
             //if the course has a grade of D or F, don't send to controller and add asterisk
-            if ((String)gradeComboBox.SelectedItem == "D" || (String)gradeComboBox.SelectedItem == "F")
+            if ((string)gradeComboBox.SelectedItem == "D" || (string)gradeComboBox.SelectedItem == "F")
             {
                 transcriptTextBox.Text += courseComboBox.Text + " " + courseNumber + " " + gradeComboBox.Text + "*" + Environment.NewLine;
             }
@@ -167,7 +167,7 @@ namespace CourseBuilder
 
             //remove the course from the textbox
             //will need to conver to array and then put back to the textbox while skipping the one to remove
-            String[] workingString = transcriptTextBox.Text.Split(Environment.NewLine);
+            string[] workingString = transcriptTextBox.Text.Split(Environment.NewLine);
             transcriptTextBox.Text = ""; //set to empty string
             for(int i = 0; i < workingString.Length - 1; i++) //set to minus one to ignore the last line, which is blank
             {
@@ -199,7 +199,22 @@ namespace CourseBuilder
         //ex deduction methods, eplanation module
         private void runButton_Click(object sender, EventArgs e)
         {
-            controller.run(Courses);
+            if(forwardRadioButton.Checked)
+            {
+                controller.run(Courses);
+            }
+            else
+            {
+                //Since the maskedtextbox does allow for spaces and returns a string with spaces, remove spaces and check length
+                string courseNumber = string.Concat(backMaskedTextBox.Text.Where(c => !Char.IsWhiteSpace(c)));
+                if (courseNumber.Length != 4)
+                {
+                    MessageBox.Show("Please enter a full course number");
+                    return;
+                }
+                string course = "CSCI " + courseNumber;
+                controller.run(Courses, course);
+            }
         }
     }
 }

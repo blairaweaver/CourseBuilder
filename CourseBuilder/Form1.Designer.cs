@@ -52,6 +52,11 @@
             this.fallTextBox = new System.Windows.Forms.TextBox();
             this.springLabel = new System.Windows.Forms.Label();
             this.springTextBox = new System.Windows.Forms.TextBox();
+            this.backMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.backCourseLabel = new System.Windows.Forms.Label();
+            this.csciLable = new System.Windows.Forms.Label();
+            this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // subjectLabel
@@ -65,9 +70,11 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1097, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(791, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,7 +83,7 @@
             this.addButton.Location = new System.Drawing.Point(353, 62);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 2;
+            this.addButton.TabIndex = 7;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -142,7 +149,7 @@
             this.gradeComboBox.Location = new System.Drawing.Point(288, 60);
             this.gradeComboBox.Name = "gradeComboBox";
             this.gradeComboBox.Size = new System.Drawing.Size(38, 23);
-            this.gradeComboBox.TabIndex = 9;
+            this.gradeComboBox.TabIndex = 6;
             // 
             // transcriptTextBox
             // 
@@ -153,12 +160,13 @@
             this.transcriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.transcriptTextBox.Size = new System.Drawing.Size(192, 110);
             this.transcriptTextBox.TabIndex = 10;
+            this.transcriptTextBox.TabStop = false;
             this.transcriptTextBox.MouseHover += new System.EventHandler(this.transcriptTextBox_MouseHover);
             // 
             // endButton
             // 
             this.endButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.endButton.Location = new System.Drawing.Point(353, 689);
+            this.endButton.Location = new System.Drawing.Point(288, 479);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(198, 45);
             this.endButton.TabIndex = 11;
@@ -206,7 +214,7 @@
             // runButton
             // 
             this.runButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.runButton.Location = new System.Drawing.Point(151, 690);
+            this.runButton.Location = new System.Drawing.Point(52, 480);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(117, 44);
             this.runButton.TabIndex = 16;
@@ -217,7 +225,8 @@
             // forwardRadioButton
             // 
             this.forwardRadioButton.AutoSize = true;
-            this.forwardRadioButton.Location = new System.Drawing.Point(117, 616);
+            this.forwardRadioButton.Checked = true;
+            this.forwardRadioButton.Location = new System.Drawing.Point(52, 406);
             this.forwardRadioButton.Name = "forwardRadioButton";
             this.forwardRadioButton.Size = new System.Drawing.Size(119, 19);
             this.forwardRadioButton.TabIndex = 17;
@@ -228,18 +237,17 @@
             // backwardRadioButton
             // 
             this.backwardRadioButton.AutoSize = true;
-            this.backwardRadioButton.Location = new System.Drawing.Point(317, 616);
+            this.backwardRadioButton.Location = new System.Drawing.Point(288, 406);
             this.backwardRadioButton.Name = "backwardRadioButton";
             this.backwardRadioButton.Size = new System.Drawing.Size(127, 19);
             this.backwardRadioButton.TabIndex = 18;
-            this.backwardRadioButton.TabStop = true;
             this.backwardRadioButton.Text = "Backward Chaining";
             this.backwardRadioButton.UseVisualStyleBackColor = true;
             // 
             // fallLabel
             // 
             this.fallLabel.AutoSize = true;
-            this.fallLabel.Location = new System.Drawing.Point(28, 251);
+            this.fallLabel.Location = new System.Drawing.Point(44, 202);
             this.fallLabel.Name = "fallLabel";
             this.fallLabel.Size = new System.Drawing.Size(76, 15);
             this.fallLabel.TabIndex = 20;
@@ -247,17 +255,18 @@
             // 
             // fallTextBox
             // 
-            this.fallTextBox.Location = new System.Drawing.Point(28, 269);
+            this.fallTextBox.Location = new System.Drawing.Point(44, 220);
             this.fallTextBox.Multiline = true;
             this.fallTextBox.Name = "fallTextBox";
             this.fallTextBox.ReadOnly = true;
             this.fallTextBox.Size = new System.Drawing.Size(192, 110);
             this.fallTextBox.TabIndex = 19;
+            this.fallTextBox.TabStop = false;
             // 
             // springLabel
             // 
             this.springLabel.AutoSize = true;
-            this.springLabel.Location = new System.Drawing.Point(317, 247);
+            this.springLabel.Location = new System.Drawing.Point(333, 198);
             this.springLabel.Name = "springLabel";
             this.springLabel.Size = new System.Drawing.Size(92, 15);
             this.springLabel.TabIndex = 22;
@@ -265,18 +274,55 @@
             // 
             // springTextBox
             // 
-            this.springTextBox.Location = new System.Drawing.Point(317, 269);
+            this.springTextBox.Location = new System.Drawing.Point(333, 220);
             this.springTextBox.Multiline = true;
             this.springTextBox.Name = "springTextBox";
             this.springTextBox.ReadOnly = true;
             this.springTextBox.Size = new System.Drawing.Size(192, 110);
             this.springTextBox.TabIndex = 21;
+            this.springTextBox.TabStop = false;
+            // 
+            // backMaskedTextBox
+            // 
+            this.backMaskedTextBox.Location = new System.Drawing.Point(489, 405);
+            this.backMaskedTextBox.Mask = "0000";
+            this.backMaskedTextBox.Name = "backMaskedTextBox";
+            this.backMaskedTextBox.Size = new System.Drawing.Size(100, 23);
+            this.backMaskedTextBox.TabIndex = 24;
+            // 
+            // backCourseLabel
+            // 
+            this.backCourseLabel.AutoSize = true;
+            this.backCourseLabel.Location = new System.Drawing.Point(489, 387);
+            this.backCourseLabel.Name = "backCourseLabel";
+            this.backCourseLabel.Size = new System.Drawing.Size(91, 15);
+            this.backCourseLabel.TabIndex = 23;
+            this.backCourseLabel.Text = "Course Number";
+            // 
+            // csciLable
+            // 
+            this.csciLable.AutoSize = true;
+            this.csciLable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.csciLable.Location = new System.Drawing.Point(437, 408);
+            this.csciLable.Name = "csciLable";
+            this.csciLable.Size = new System.Drawing.Size(43, 21);
+            this.csciLable.TabIndex = 25;
+            this.csciLable.Text = "CSCI";
+            // 
+            // loadMenuItem
+            // 
+            this.loadMenuItem.Name = "loadMenuItem";
+            this.loadMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.loadMenuItem.Text = "&Load";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1097, 764);
+            this.ClientSize = new System.Drawing.Size(791, 567);
+            this.Controls.Add(this.csciLable);
+            this.Controls.Add(this.backMaskedTextBox);
+            this.Controls.Add(this.backCourseLabel);
             this.Controls.Add(this.springLabel);
             this.Controls.Add(this.springTextBox);
             this.Controls.Add(this.fallLabel);
@@ -301,7 +347,9 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "AI Advisor";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,6 +380,10 @@
         private System.Windows.Forms.TextBox fallTextBox;
         private System.Windows.Forms.Label springLabel;
         private System.Windows.Forms.TextBox springTextBox;
+        private System.Windows.Forms.MaskedTextBox backMaskedTextBox;
+        private System.Windows.Forms.Label backCourseLabel;
+        private System.Windows.Forms.Label csciLable;
+        private System.Windows.Forms.ToolStripMenuItem loadMenuItem;
     }
 }
 

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.subjectLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addButton = new System.Windows.Forms.Button();
             this.courseComboBox = new System.Windows.Forms.ComboBox();
             this.courseNumberLabel = new System.Windows.Forms.Label();
@@ -55,7 +56,8 @@
             this.backMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.backCourseLabel = new System.Windows.Forms.Label();
             this.csciLable = new System.Windows.Forms.Label();
-            this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fillScheduleButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +79,13 @@
             this.menuStrip1.Size = new System.Drawing.Size(791, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // loadMenuItem
+            // 
+            this.loadMenuItem.Name = "loadMenuItem";
+            this.loadMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.loadMenuItem.Text = "&Load";
+            this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
             // 
             // addButton
             // 
@@ -166,7 +175,7 @@
             // endButton
             // 
             this.endButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.endButton.Location = new System.Drawing.Point(288, 479);
+            this.endButton.Location = new System.Drawing.Point(489, 480);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(198, 45);
             this.endButton.TabIndex = 11;
@@ -214,7 +223,7 @@
             // runButton
             // 
             this.runButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.runButton.Location = new System.Drawing.Point(52, 480);
+            this.runButton.Location = new System.Drawing.Point(288, 481);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(117, 44);
             this.runButton.TabIndex = 16;
@@ -309,17 +318,27 @@
             this.csciLable.TabIndex = 25;
             this.csciLable.Text = "CSCI";
             // 
-            // loadMenuItem
+            // fillScheduleButton
             // 
-            this.loadMenuItem.Name = "loadMenuItem";
-            this.loadMenuItem.Size = new System.Drawing.Size(45, 20);
-            this.loadMenuItem.Text = "&Load";
+            this.fillScheduleButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fillScheduleButton.Location = new System.Drawing.Point(52, 480);
+            this.fillScheduleButton.Name = "fillScheduleButton";
+            this.fillScheduleButton.Size = new System.Drawing.Size(166, 44);
+            this.fillScheduleButton.TabIndex = 26;
+            this.fillScheduleButton.Text = "Fill Schedule";
+            this.fillScheduleButton.UseVisualStyleBackColor = true;
+            this.fillScheduleButton.Click += new System.EventHandler(this.fillScheduleButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 567);
+            this.Controls.Add(this.fillScheduleButton);
             this.Controls.Add(this.csciLable);
             this.Controls.Add(this.backMaskedTextBox);
             this.Controls.Add(this.backCourseLabel);
@@ -384,6 +403,8 @@
         private System.Windows.Forms.Label backCourseLabel;
         private System.Windows.Forms.Label csciLable;
         private System.Windows.Forms.ToolStripMenuItem loadMenuItem;
+        private System.Windows.Forms.Button fillScheduleButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

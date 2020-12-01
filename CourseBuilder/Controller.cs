@@ -11,7 +11,7 @@ namespace CourseBuilder
         List<Rule> workingRules; //the working list of rules that will be searched
         List<Rule> firedRules; //rules that have reqs meet will be moved to here temporarily
         List<Rule> nonApplicable; //this are rules for which a outcome course is in the transcript or in one of the semesters
-        List<String> workingMemory;
+        List<string> workingMemory;
         Form1 mainForm; //this is so this class can modify the text boxes on the form
         InferenceEngine inferenceEngine; 
         public Controller(Form1 form)
@@ -38,7 +38,7 @@ namespace CourseBuilder
 
         //this will add the course to the working memory
         //this will also move any rules that have this as an output to 
-        private void addToWorkingMem(List<String> Courses)
+        private void addToWorkingMem(List<string> Courses)
         {
             //add the courses to working memory
             workingMemory = new List<string>(Courses);
@@ -61,7 +61,7 @@ namespace CourseBuilder
             //loop through the rules to find courses
             //This will be done twice: fall and spring
 
-            String output = "";
+            string output = "";
 
             //get the fall courses
             getCourses("F");
@@ -70,7 +70,7 @@ namespace CourseBuilder
             //add the rules to Non applicable
             for(int i = 0; i < firedRules.Count; i++)
             {
-                String courseName = firedRules[i].Course;
+                string courseName = firedRules[i].Course;
                 workingMemory.Add(courseName);
                 output += courseName + Environment.NewLine;
                 nonApplicable.Add(firedRules[i]);
@@ -89,7 +89,7 @@ namespace CourseBuilder
             //add the rules to Non applicable
             for (int i = 0; i < firedRules.Count; i++)
             {
-                String courseName = firedRules[i].Course;
+                string courseName = firedRules[i].Course;
                 workingMemory.Add(courseName);
                 output += courseName + Environment.NewLine;
                 nonApplicable.Add(firedRules[i]);
@@ -104,9 +104,9 @@ namespace CourseBuilder
 
         //This function will get four course for the semester given
         //courses stored in the FiredRules
-        private void getCourses(String semester)
+        private void getCourses(string semester)
         {
-            List<String> workingList = new List<string>();
+            List<string> workingList = new List<string>();
             //Search for the courses
             for (int i = 0; i < workingRules.Count; i++)
             {
@@ -144,20 +144,34 @@ namespace CourseBuilder
         //This will call the other functions needed
 
         //Nothing prevents this from being called again before end session is clicked
-        public void run(List<String> Courses)
+        public void run()
         {
-            addToWorkingMem(Courses);
-            getJuniorSchedule();
+            
             string output = inferenceEngine.forwardChaining(workingMemory, workingRules);
             ForwardOutput forwardOutput = new ForwardOutput(output);
             forwardOutput.ShowDialog();
         }
 
-        public void run(List<String> Courses, String Course)
+        public void run(string Course)
+        {
+            Rule? triggerRule = inferenceEngine.backwardChaining(workingMemory, workingRules, Course);
+
+            if(triggerRule != null)
+            {
+                ForwardOutput forwardOutput = new ForwardOutput(triggerRule.Course);
+                forwardOutput.ShowDialog();
+            }
+            else
+            {
+                ForwardOutput forwardOutput = new ForwardOutput("null");
+                forwardOutput.ShowDialog();
+            }
+        }
+
+        public void fillSchedule(List<string> Courses)
         {
             addToWorkingMem(Courses);
             getJuniorSchedule();
-            inferenceEngine.backwardChaining(workingMemory, workingRules, Course);
         }
     }
 }

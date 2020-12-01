@@ -6,13 +6,14 @@ namespace CourseBuilder
 {
     class InferenceEngine
     {
-        List<String> workingMem;
+        List<string> workingMem;
         public InferenceEngine()
         {
 
         }
 
-        public string forwardChaining(List<String> workingMem, List<Rule> rules)
+        //This takes the working memeory and returns a list of classes that can be taken in the fall
+        public string forwardChaining(List<string> workingMem, List<Rule> rules)
         {
             string output = "";
             foreach(Rule workingRule in rules)
@@ -26,9 +27,20 @@ namespace CourseBuilder
             return output;
         }
 
-        public void backwardChaining(List<String> workingMem, List<Rule> rules, String course)
+        //this takes a course and determines if it can be taken in the spring.
+        //
+        //NEED TO RUN FORWARD CHAINING TO SEE WHAT IS TAKEN IN THE FALL!!!!!
+        public Rule backwardChaining(List<string> workingMem, List<Rule> rules, string course)
         {
+            foreach(Rule workingRule in rules)
+            {
+                if(workingRule.Course == course && workingRule.requirementsMet("S", workingMem))
+                {
+                    return workingRule;
+                }
+            }
 
+            return null;
         }
     }
 }

@@ -6,15 +6,19 @@ namespace CourseBuilder
 {
     class Rule
     {
-        private List<String> req;
-        private String sem;
-        private String course;
-        public String Course
+        private List<string> req;
+        private string sem;
+        private string course;
+        public string Course
         {
             get { return course; }
         }
+        public string Semester
+        {
+            get { return sem; }
+        }
 
-        public Rule(List<String> requirements, String semester, String course) 
+        public Rule(List<string> requirements, string semester, string course) 
         {
             req = requirements;
             sem = semester;
@@ -22,7 +26,7 @@ namespace CourseBuilder
         }
 
         //take the Semester and working memory to see if this rule can fire
-        public Boolean requirementsMet(String semester, List<String> workingMem)
+        public Boolean requirementsMet(string semester, List<string> workingMem)
         {
             //semester is a faster check, so do that first
             //if semester is correct, then check the other requirements
@@ -30,7 +34,7 @@ namespace CourseBuilder
             if (sem == "O" || sem == semester )
             {
                 //cycle throught the prereqs
-                foreach (String prereq in req)
+                foreach (string prereq in req)
                 {
                     //if a prereq isn't in the working memory, return false
                     if (!workingMem.Contains(prereq))

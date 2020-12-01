@@ -13,7 +13,7 @@ namespace CourseBuilder
     public partial class Form1 : Form
     {
         private Controller controller;
-        List<String> Courses;
+        List<string> Courses;
         public Form1()
         {
             controller = new Controller(this);
@@ -136,6 +136,9 @@ namespace CourseBuilder
             fallTextBox.Clear();
             springTextBox.Clear();
 
+            //clear the course field
+            backMaskedTextBox.Clear();
+
             //clear the remove combobox
             removeComboBox.Items.Clear();
 
@@ -167,22 +170,22 @@ namespace CourseBuilder
 
             //remove the course from the textbox
             //will need to conver to array and then put back to the textbox while skipping the one to remove
-            string[] workingString = transcriptTextBox.Text.Split(Environment.NewLine);
+            string[] workingstring = transcriptTextBox.Text.Split(Environment.NewLine);
             transcriptTextBox.Text = ""; //set to empty string
-            for(int i = 0; i < workingString.Length - 1; i++) //set to minus one to ignore the last line, which is blank
+            for(int i = 0; i < workingstring.Length - 1; i++) //set to minus one to ignore the last line, which is blank
             {
                 //skip the string to remove
                 if(i == index)
                 {
                     continue;
                 }
-                transcriptTextBox.Text += workingString[i] + Environment.NewLine;
+                transcriptTextBox.Text += workingstring[i] + Environment.NewLine;
             }
 
         }
 
         //give the other classes access to modify the fall and spring textbox
-        public void addJuniorCourses(String output, String Semester)
+        public void addJuniorCourses(string output, string Semester)
         {
             if(Semester == "F")
             {
@@ -194,14 +197,12 @@ namespace CourseBuilder
             }
         }
 
-        //this will start the process.
-        //There is still a lot to write and then add here
-        //ex deduction methods, eplanation module
+        //this will start the process for the deduction methods
         private void runButton_Click(object sender, EventArgs e)
         {
             if(forwardRadioButton.Checked)
             {
-                controller.run(Courses);
+                controller.run();
             }
             else
             {
@@ -213,7 +214,28 @@ namespace CourseBuilder
                     return;
                 }
                 string course = "CSCI " + courseNumber;
-                controller.run(Courses, course);
+                controller.run(course);
+            }
+        }
+
+        //This will fill out the junior schedule. This allows for the run button to be clicked several times
+        private void fillScheduleButton_Click(object sender, EventArgs e)
+        {
+            controller.fillSchedule(Courses);
+        }
+
+        //this will be used to load the courses from a text file.
+        private void loadMenuItem_Click(object sender, EventArgs e)
+        {
+            //show the open dialog
+            openFileDialog1.Filter = "Text Files|*.txt|All Files|*.*";
+            openFileDialog1.Title = "Load Transcript";
+            openFileDialog1.ShowDialog();
+
+            //check if filename was given
+            if (openFileDialog1.FileName != "")
+            {
+                //NEED TO LOAD THE TRANSCRIPT INTO THE PROGRAM!!
             }
         }
     }

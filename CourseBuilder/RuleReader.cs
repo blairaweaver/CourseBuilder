@@ -17,9 +17,9 @@ namespace CourseBuilder
 
         public List<Rule> createRules()
         {
-            List<String> req;
-            String course = "";
-            String sem = "";
+            List<string> req;
+            string course = "";
+            string sem = "";
             int count;
             //load file
             XmlDocument doc = new XmlDocument();

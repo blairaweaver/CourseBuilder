@@ -39,7 +39,9 @@ namespace CourseBuilder
             //the rule used
             Rule rule = ruleList[courseComboBox.SelectedIndex];
 
-            string output = "By using rule" + rule.RuleNumber + " and knowing that" + Environment.NewLine;
+            string output = "By using rule" + rule.RuleNumber + " and knowing that" + Environment.NewLine + 
+                "It is the " + rule.Semester + Environment.NewLine;
+
 
             List<string> requirements = rule.Requirements;
 

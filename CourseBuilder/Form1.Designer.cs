@@ -58,6 +58,7 @@
             this.csciLable = new System.Windows.Forms.Label();
             this.fillScheduleButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.memoryCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -235,7 +236,7 @@
             // 
             this.forwardRadioButton.AutoSize = true;
             this.forwardRadioButton.Checked = true;
-            this.forwardRadioButton.Location = new System.Drawing.Point(52, 406);
+            this.forwardRadioButton.Location = new System.Drawing.Point(44, 404);
             this.forwardRadioButton.Name = "forwardRadioButton";
             this.forwardRadioButton.Size = new System.Drawing.Size(119, 19);
             this.forwardRadioButton.TabIndex = 17;
@@ -246,7 +247,7 @@
             // backwardRadioButton
             // 
             this.backwardRadioButton.AutoSize = true;
-            this.backwardRadioButton.Location = new System.Drawing.Point(288, 406);
+            this.backwardRadioButton.Location = new System.Drawing.Point(224, 405);
             this.backwardRadioButton.Name = "backwardRadioButton";
             this.backwardRadioButton.Size = new System.Drawing.Size(127, 19);
             this.backwardRadioButton.TabIndex = 18;
@@ -293,7 +294,7 @@
             // 
             // backMaskedTextBox
             // 
-            this.backMaskedTextBox.Location = new System.Drawing.Point(489, 405);
+            this.backMaskedTextBox.Location = new System.Drawing.Point(466, 400);
             this.backMaskedTextBox.Mask = "0000";
             this.backMaskedTextBox.Name = "backMaskedTextBox";
             this.backMaskedTextBox.Size = new System.Drawing.Size(100, 23);
@@ -302,7 +303,7 @@
             // backCourseLabel
             // 
             this.backCourseLabel.AutoSize = true;
-            this.backCourseLabel.Location = new System.Drawing.Point(489, 387);
+            this.backCourseLabel.Location = new System.Drawing.Point(466, 382);
             this.backCourseLabel.Name = "backCourseLabel";
             this.backCourseLabel.Size = new System.Drawing.Size(91, 15);
             this.backCourseLabel.TabIndex = 23;
@@ -312,7 +313,7 @@
             // 
             this.csciLable.AutoSize = true;
             this.csciLable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.csciLable.Location = new System.Drawing.Point(437, 408);
+            this.csciLable.Location = new System.Drawing.Point(411, 402);
             this.csciLable.Name = "csciLable";
             this.csciLable.Size = new System.Drawing.Size(43, 21);
             this.csciLable.TabIndex = 25;
@@ -333,11 +334,24 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // memoryCheckBox
+            // 
+            this.memoryCheckBox.AutoSize = true;
+            this.memoryCheckBox.Checked = true;
+            this.memoryCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.memoryCheckBox.Location = new System.Drawing.Point(609, 404);
+            this.memoryCheckBox.Name = "memoryCheckBox";
+            this.memoryCheckBox.Size = new System.Drawing.Size(160, 19);
+            this.memoryCheckBox.TabIndex = 27;
+            this.memoryCheckBox.Text = "Display Working Memory";
+            this.memoryCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 567);
+            this.Controls.Add(this.memoryCheckBox);
             this.Controls.Add(this.fillScheduleButton);
             this.Controls.Add(this.csciLable);
             this.Controls.Add(this.backMaskedTextBox);
@@ -405,6 +419,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadMenuItem;
         private System.Windows.Forms.Button fillScheduleButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.CheckBox memoryCheckBox;
     }
 }
 

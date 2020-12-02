@@ -228,7 +228,7 @@ namespace CourseBuilder
         //This will fill out the junior schedule. This allows for the run button to be clicked several times
         private void fillScheduleButton_Click(object sender, EventArgs e)
         {
-            controller.fillSchedule(Courses);
+            controller.fillSchedule(Courses, memoryCheckBox.Checked);
         }
 
         //this will be used to load the courses from a text file.

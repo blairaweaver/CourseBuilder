@@ -26,6 +26,9 @@ namespace CourseBuilder
             string fileName = Path.Combine(Directory.GetCurrentDirectory(), "Rules.xml");
             doc.Load(fileName);
 
+            //keep track of the number of rules
+            int numRules = 0;
+
             //cycle through the nodes
             foreach(XmlNode xmlNode in doc.DocumentElement)
             {
@@ -48,7 +51,9 @@ namespace CourseBuilder
                     }
                     count++;
                 }
-                rules.Add(new Rule(req, sem, course));
+                rules.Add(new Rule(numRules, req, sem, course));
+
+                numRules++;
             }
 
             //return the list

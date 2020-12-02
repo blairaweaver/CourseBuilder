@@ -147,8 +147,8 @@ namespace CourseBuilder
         public void run()
         {
             
-            string output = inferenceEngine.forwardChaining(workingMemory, workingRules);
-            ForwardOutput forwardOutput = new ForwardOutput(output);
+            List<Rule> ruleList = inferenceEngine.forwardChaining(workingMemory, workingRules);
+            ForwardOutput forwardOutput = new ForwardOutput(ruleList);
             forwardOutput.ShowDialog();
         }
 
@@ -158,13 +158,13 @@ namespace CourseBuilder
 
             if(triggerRule != null)
             {
-                ForwardOutput forwardOutput = new ForwardOutput(triggerRule.Course);
-                forwardOutput.ShowDialog();
+                //ForwardOutput forwardOutput = new ForwardOutput(triggerRule.Course);
+                //forwardOutput.ShowDialog();
             }
             else
             {
-                ForwardOutput forwardOutput = new ForwardOutput("null");
-                forwardOutput.ShowDialog();
+                //ForwardOutput forwardOutput = new ForwardOutput("null");
+                //forwardOutput.ShowDialog();
             }
         }
 

@@ -4,11 +4,16 @@ using System.Text;
 
 namespace CourseBuilder
 {
-    class Rule
+    public class Rule
     {
         private List<string> req;
         private string sem;
         private string course;
+        private int ruleNumber;
+        public int RuleNumber
+        {
+            get { return ruleNumber; }
+        }
         public string Course
         {
             get { return course; }
@@ -17,9 +22,14 @@ namespace CourseBuilder
         {
             get { return sem; }
         }
-
-        public Rule(List<string> requirements, string semester, string course) 
+        public List<string> Requirements
         {
+            get { return req; }
+        }
+
+        public Rule(int num, List<string> requirements, string semester, string course)
+        {
+            ruleNumber = num;
             req = requirements;
             sem = semester;
             this.course = course;

@@ -55,26 +55,33 @@ namespace CourseBuilder
                 return;
             }
 
-            //Add course to the transcript. Need to also send it to the controller
-            //if the course has a grade of D or F, don't send to controller and add asterisk
-            if ((string)gradeComboBox.SelectedItem == "D" || (string)gradeComboBox.SelectedItem == "F")
-            {
-                transcriptTextBox.Text += courseComboBox.Text + " " + courseNumber + " " + gradeComboBox.Text + "*" + Environment.NewLine;
-            }
-            else
-            {
-                transcriptTextBox.Text += courseComboBox.Text + " " + courseNumber + " " + gradeComboBox.Text + Environment.NewLine;
-                //Since we are allowing the user to remove classes, lets not send courses to the controller till the user has started the search
-                Courses.Add(courseComboBox.Text + " " + courseNumber);
-            }
-
-            //add the course to the remove combo box
-            removeComboBox.Items.Add(courseComboBox.Text + " " + courseNumber);
+            addToTranscript(courseComboBox.Text, courseNumber, (string)gradeComboBox.SelectedItem);
 
             //clear the fields
             courseComboBox.SelectedIndex = -1;
             courseNumberMaskedTextBox.Clear();
             gradeComboBox.SelectedIndex = -1;
+        }
+
+        //this will add course to transcript.
+        //Moved this outside of the addButton so that the load file method can use it
+        private void addToTranscript(string subject, string courseNumber, string grade)
+        {
+            //Add course to the transcript. Need to also send it to the controller
+            //if the course has a grade of D or F, don't send to controller and add asterisk
+            if (grade == "D" || grade == "F")
+            {
+                transcriptTextBox.Text += subject + " " + courseNumber + " " + grade + "*" + Environment.NewLine;
+            }
+            else
+            {
+                transcriptTextBox.Text += subject + " " + courseNumber + " " + grade + Environment.NewLine;
+                //Since we are allowing the user to remove classes, lets not send courses to the controller till the user has started the search
+                Courses.Add(subject + " " + courseNumber);
+            }
+
+            //add the course to the remove combo box
+            removeComboBox.Items.Add(subject + " " + courseNumber);
         }
 
         //clear the course field when clear button is clicked
@@ -236,6 +243,38 @@ namespace CourseBuilder
             if (openFileDialog1.FileName != "")
             {
                 //NEED TO LOAD THE TRANSCRIPT INTO THE PROGRAM!!
+
+                //boolean to keep track of if there was and error
+                bool error = false;
+
+                //read file
+                string fileText = System.IO.File.ReadAllText(openFileDialog1.FileName);
+
+                //break into lines, which will be Subject, Course Number, and Grade
+                string[] courses = fileText.Split(Environment.NewLine);
+
+                //foreach line, break into subject, course number, and grade and then send to addToTranscrip
+                foreach(string workingCourse in courses)
+                {
+                    string[] courseParts = workingCourse.Split(" ");
+
+                    //check that the subject, course number, and grade all present.
+                    //For time sake, won't check that input is valid. User can see the input on the screen and can remove if needed
+                    if (courseParts.Length != 3)
+                    {
+                        error = true;
+                        continue;
+                    }
+
+                    //send to addToTranscript
+                    addToTranscript(courseParts[0], courseParts[1], courseParts[2]);
+                }
+
+                //if there was an error, inform the user
+                if(error)
+                {
+                    MessageBox.Show("There was an error with 1 or more of your courses. Please review your file");
+                }
             }
         }
     }
